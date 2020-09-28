@@ -15,13 +15,19 @@ export const Flag = styled.img(
   (props) => `
     width: 100%;
     height: 50rem;
-    object-fit: fiil;
+    object-fit: cover;
+    box-shadow: 0 .2rem .3rem rgba(0,0,0,.15);
+
+    @media (max-width: 500px){
+      height: 100%;
+    }
+
+  
   `
 );
 export const ImageContainer = styled.div`
-    @media (max-width: 500px){
-    margin: 2rem ;
-  }
+    width: 100%;
+
 `;
 
 export const Header = styled.h3`
@@ -35,6 +41,10 @@ export const Details = styled.div`
   grid-template-rows: repeat(3, 1fr);
   align-self: center;
   align-items: center;
+
+  @media (max-width: 500px){
+    margin-left: 0;
+  }
 
 `;
 export const DetailsBox = styled.div`
@@ -53,6 +63,12 @@ export const NeighborButton = styled.p`
   border: 2px solid hsla(0, 0%, 52%, 0.5);
   cursor: pointer;
   border-radius: 0.5rem;
+  transition: all .3s ease;
+
+
+  &:hover, &:active, &:focus{
+    background-color: hsla(0,0%, 52%, .5);
+  }
 `;
 export const BorderStyle = styled.div(
   (props) => `
@@ -61,7 +77,7 @@ export const BorderStyle = styled.div(
   align-items: center;
 
   & *{
-    margin: 0;
+    margin: 1rem 0;
     margin-right: 1rem
   }
 `

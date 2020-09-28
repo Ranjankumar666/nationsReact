@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter} from 'react-router-dom';
 
 const NavStyle = styled.nav`
   width: 100%;
@@ -16,13 +17,15 @@ const Header = styled.h2`
 `
 
 const Nav = props =>{
-
+  const sendToHome =() =>{
+    props.history.push("/");
+  }
   return (
     <NavStyle>
-      <Header>Where In The World ? </Header>
+      <Header onClick={sendToHome}>Where In The World ? </Header>
     </NavStyle>
     )
 }
 
-export default Nav;
+export default withRouter(Nav);
 

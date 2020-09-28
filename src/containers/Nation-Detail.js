@@ -5,7 +5,7 @@ import Nav from "../components/nav/nav.js";
 import Back from "../components/backButton/backButton";
 import { fetchApi } from "../store/action";
 import { connect } from "react-redux";
-import {ReactComponent as Icon} from "../arrow.svg"
+import {ReactComponent as Icon} from "../arrow.svg";
 import Border,{
   Container,
   Flag,
@@ -16,6 +16,7 @@ import Border,{
   NeighborButton
 } from "./nationDetailStyles.js";
 import Spinner from "../components/UI/spinner/spinner";
+import withError from "../hoc/withError";
 
 const CancelToken = axios.CancelToken;
 let cancel;
@@ -139,4 +140,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchApi: () => dispatch(fetchApi()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NationDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(withError(NationDetail));

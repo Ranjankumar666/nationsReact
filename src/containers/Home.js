@@ -4,10 +4,11 @@ import axios from "axios";
 import Container from "../components/container/container";
 import Nav from "../components/nav/nav";
 import Search from "../components/search/searchAndFilter";
-import { withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import { fetchApi } from "../store/action";
 import { connect } from "react-redux";
 import Spinner from "../components/UI/spinner/spinner";
+import withError from "../hoc/withError";
 
 const CancelToken = axios.CancelToken;
 let cancel;
@@ -40,7 +41,7 @@ class Home extends Component {
         });
       }
 
-      this.setState({ nations: data.data.slice(0, 4) });
+      this.setState({ nations: data.data.slice(0,9) });
       this.setState({ isLoading: false });
     } catch (thrown) {
       if (axios.isCancel(thrown)) {
@@ -75,7 +76,7 @@ class Home extends Component {
           });
         }
 
-        this.setState({ nations: data.data.slice(0, 4) });
+        this.setState({ nations: data.data.slice(0,9) });
         this.setState({ isLoading: false });
       } catch (thrown) {
         if (axios.isCancel(thrown)) {
@@ -169,4 +170,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(React.memo(Home)));
+)(withRouter(React.memo(withError(Home))));
