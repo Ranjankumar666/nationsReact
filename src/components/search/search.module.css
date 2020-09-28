@@ -1,0 +1,15 @@
+.Dropbox {
+  padding: 2rem 4rem;
+  border-radius: 0.2rem;
+  position: relative;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+.Options {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  padding: 2rem 4rem;
+  background-color: #fff;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+}
